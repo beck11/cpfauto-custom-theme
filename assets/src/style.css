@@ -1,0 +1,698 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Base Styles */
+@layer base {
+  :root {
+    --color-primary: #15153f;
+    --color-secondary: #be1e2e;
+    --color-accent: #febf00;
+  }
+  
+  /* Base Typography */
+  body {
+    @apply text-gray-900 font-sans antialiased;
+    @apply text-base leading-body;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Heading Hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+    @apply text-gray-900;
+    @apply leading-heading;
+    font-feature-settings: 'kern' 1;
+    letter-spacing: -0.01em;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold;
+  }
+  
+  h4 {
+    @apply text-xl md:text-2xl lg:text-3xl font-semibold;
+  }
+  
+  h5 {
+    @apply text-lg md:text-xl lg:text-2xl font-semibold;
+  }
+  
+  h6 {
+    @apply text-base md:text-lg lg:text-xl font-semibold;
+  }
+  
+  /* Paragraph Typography */
+  p {
+    @apply text-base leading-body;
+    @apply mb-4;
+  }
+  
+  /* Links */
+  a {
+    @apply text-primary-600 hover:text-primary-700;
+    @apply transition-colors duration-200;
+  }
+}
+
+/* Custom Components */
+@layer components {
+  /* ===========================
+     DISPLAY HEADINGS (Hero Titles)
+     =========================== */
+  .display-heading {
+    @apply font-display;
+    @apply text-hero;
+    @apply font-bold;
+    @apply text-gray-900;
+    @apply leading-none;
+    @apply tracking-tight;
+    letter-spacing: -0.02em;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+  
+  .display-heading-lg {
+    @apply font-display;
+    @apply text-6xl md:text-7xl lg:text-8xl;
+    @apply font-bold;
+    @apply text-gray-900;
+    @apply leading-none;
+    @apply tracking-tighter;
+    letter-spacing: -0.03em;
+  }
+  
+  .display-heading-sm {
+    @apply font-display;
+    @apply text-3xl md:text-4xl lg:text-5xl;
+    @apply font-bold;
+    @apply text-gray-900;
+    @apply leading-tight;
+  }
+  
+  /* Alternative Display (Bold Automotive Style) */
+  .display-heading-bold {
+    @apply font-displayAlt;
+    @apply text-5xl md:text-6xl lg:text-7xl;
+    @apply font-normal;
+    @apply text-gray-900;
+    @apply leading-none;
+    @apply tracking-auto;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  
+  /* ===========================
+     SECTION HEADINGS
+     =========================== */
+  .section-heading {
+    @apply font-heading;
+    @apply text-section-title;
+    @apply font-bold;
+    @apply text-gray-900;
+    @apply leading-heading;
+    @apply tracking-tight;
+    letter-spacing: -0.01em;
+  }
+  
+  .section-heading-lg {
+    @apply font-heading;
+    @apply text-4xl md:text-5xl lg:text-6xl;
+    @apply font-bold;
+    @apply text-gray-900;
+    @apply leading-heading;
+  }
+  
+  .section-heading-sm {
+    @apply font-heading;
+    @apply text-2xl md:text-3xl lg:text-4xl;
+    @apply font-semibold;
+    @apply text-gray-900;
+    @apply leading-heading;
+  }
+  
+  /* Section Subheading */
+  .section-subheading {
+    @apply font-heading;
+    @apply text-lg md:text-xl lg:text-2xl;
+    @apply font-medium;
+    @apply text-gray-600;
+    @apply leading-relaxed;
+  }
+  
+  /* ===========================
+     BODY TEXT
+     =========================== */
+  .body-text {
+    @apply font-sans;
+    @apply text-base;
+    @apply leading-body;
+    @apply text-gray-700;
+  }
+  
+  .body-text-lg {
+    @apply font-sans;
+    @apply text-lg;
+    @apply leading-relaxed;
+    @apply text-gray-700;
+  }
+  
+  .body-text-sm {
+    @apply font-sans;
+    @apply text-sm;
+    @apply leading-relaxed;
+    @apply text-gray-600;
+  }
+  
+  /* Lead Text (Introductory paragraphs) */
+  .lead-text {
+    @apply font-sans;
+    @apply text-xl md:text-2xl;
+    @apply font-light;
+    @apply leading-relaxed;
+    @apply text-gray-600;
+  }
+  
+  /* ===========================
+     CALL-TO-ACTION TEXT
+     =========================== */
+  .cta-text {
+    @apply font-heading;
+    @apply text-lg md:text-xl;
+    @apply font-semibold;
+    @apply text-white;
+    @apply leading-tight;
+    @apply tracking-wide;
+    letter-spacing: 0.025em;
+  }
+  
+  .cta-text-lg {
+    @apply font-heading;
+    @apply text-xl md:text-2xl lg:text-3xl;
+    @apply font-bold;
+    @apply text-white;
+    @apply leading-tight;
+    @apply tracking-wide;
+  }
+  
+  .cta-text-sm {
+    @apply font-heading;
+    @apply text-base md:text-lg;
+    @apply font-semibold;
+    @apply text-white;
+    @apply leading-tight;
+  }
+  
+  /* CTA Text for Secondary Buttons */
+  .cta-text-secondary {
+    @apply font-heading;
+    @apply text-lg md:text-xl;
+    @apply font-semibold;
+    @apply text-primary-600;
+    @apply leading-tight;
+  }
+  
+  /* ===========================
+     BUTTONS (Updated with Typography)
+     =========================== */
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-button font-heading font-semibold text-base
+           hover:bg-primary-600 transition-all duration-300 
+           focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    letter-spacing: 0.025em;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white px-6 py-3 rounded-button font-heading font-semibold text-base
+           hover:bg-secondary-600 transition-all duration-300;
+    letter-spacing: 0.025em;
+  }
+  
+  .btn-accent {
+    @apply bg-accent text-primary-900 px-6 py-3 rounded-button font-heading font-bold text-base
+           hover:bg-accent-400 transition-all duration-300;
+    letter-spacing: 0.025em;
+  }
+  
+  /* ===========================
+     LAYOUT COMPONENTS
+     =========================== */
+  .container-custom {
+    @apply max-w-container mx-auto px-container;
+  }
+  
+  .section-padding {
+    @apply py-section md:py-section-lg;
+  }
+  
+  .card {
+    @apply bg-white rounded-card shadow-card p-6 
+           hover:shadow-card-hover transition-shadow duration-300;
+  }
+  
+  /* ===========================
+     TYPOGRAPHY UTILITIES
+     =========================== */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* WordPress Core Styles */
+@layer utilities {
+  .alignwide {
+    @apply max-w-screen-xl mx-auto;
+  }
+  
+  .alignfull {
+    @apply w-full max-w-none;
+  }
+  
+  .wp-block-image img {
+    @apply max-w-full h-auto;
+  }
+  
+  .screen-reader-text {
+    @apply sr-only;
+  }
+  
+  /* ===========================
+     PREMIUM HEADER STYLES
+     =========================== */
+  .header-premium {
+    @apply bg-transparent;
+  }
+  
+  /* Transparent header (homepage) */
+  .header-premium.header-transparent {
+    @apply bg-transparent shadow-none;
+  }
+  
+  .header-premium.header-transparent .nav-link-desktop {
+    @apply text-white;
+  }
+  
+  .header-premium.header-transparent .header-phone {
+    @apply text-white;
+  }
+  
+  .header-premium.header-transparent .logo-image {
+    filter: brightness(0) invert(1); /* White logo */
+  }
+  
+  /* Scrolled header (solid background) */
+  .header-premium.header-scrolled {
+    @apply bg-white shadow-header;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+  
+  /* On pages (non-homepage), header should have white background by default */
+  body:not(.home) .header-premium {
+    @apply bg-white shadow-header;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .header-premium.header-scrolled .nav-link-desktop {
+    @apply text-black;
+  }
+  
+  .header-premium.header-scrolled .header-phone {
+    @apply text-gray-700;
+  }
+  
+  .header-premium.header-scrolled .logo-image {
+    filter: none; /* Original logo colors */
+  }
+  
+  /* Navigation link hover effect */
+  .nav-link-desktop {
+    position: relative;
+    @apply text-white; /* Default white color */
+  }
+  
+  /* On pages (non-homepage), make links black by default */
+  body:not(.home) .header-premium:not(.header-transparent) .nav-link-desktop {
+    @apply text-black;
+  }
+  
+  body:not(.home) .header-premium:not(.header-transparent) .header-phone {
+    @apply text-gray-700;
+  }
+
+  .nav-link-desktop:hover {
+    @apply text-accent;
+  }
+
+  .nav-link-desktop.current-menu-item {
+    @apply text-accent font-semibold;
+  }
+
+  .nav-link-desktop::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 w-0 h-0.5 bg-accent transition-all duration-300;
+    transform: translateX(-50%);
+  }
+
+  .nav-link-desktop:hover::after,
+  .current-menu-item .nav-link-desktop::after {
+    @apply w-3/4;
+  }
+  
+  /* Hamburger animation */
+  .hamburger-icon {
+    position: relative;
+  }
+  
+  .menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  /* Mobile menu overlay */
+  .mobile-menu-overlay {
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.98);
+  }
+  
+  /* Header spacer adjustment */
+  .header-spacer {
+    transition: height 0.3s ease;
+  }
+  
+  .header-scrolled ~ .header-spacer {
+    @apply h-20 lg:h-24;
+  }
+  
+  /* ===========================
+     HERO SECTION STYLES
+     =========================== */
+  .hero-section {
+    margin-top: -80px; /* Offset fixed header */
+    padding-top: 80px;
+  }
+  
+  @media (min-width: 1024px) {
+    .hero-section {
+      margin-top: -128px;
+      padding-top: 128px;
+    }
+  }
+  
+  .hero-background {
+    will-change: transform;
+  }
+  
+  .hero-background img {
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .hero-content {
+    animation-delay: 0.2s;
+  }
+  
+  .hero-search-form input,
+  .hero-search-form select {
+    @apply focus:outline-none;
+  }
+  
+  .hero-search-form input:focus,
+  .hero-search-form select:focus {
+    @apply ring-2 ring-primary border-primary;
+  }
+  
+  /* Scroll indicator animation */
+  @keyframes bounceSubtle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animate-bounce-subtle {
+    animation: bounceSubtle 2s ease-in-out infinite;
+  }
+  
+  /* ===========================
+     FOOTER STYLES
+     =========================== */
+  .site-footer {
+    position: relative;
+  }
+  
+  .footer-main {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .footer-main {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+  
+  .footer-column {
+    will-change: transform, opacity;
+  }
+  
+  .footer-title {
+    position: relative;
+    padding-bottom: 1rem;
+  }
+  
+  .footer-title::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-12 h-0.5 bg-accent;
+  }
+  
+  .footer-menu li a {
+    @apply text-gray-400 hover:text-accent transition-colors duration-200;
+  }
+  
+  .footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .footer-social-link:hover {
+    background-color: rgba(254, 191, 0, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .footer-newsletter-form input:focus {
+    @apply ring-2 ring-accent border-accent;
+  }
+  
+  .back-to-top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+  }
+  
+  .back-to-top-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    .back-to-top-btn {
+      bottom: 1rem;
+      right: 1rem;
+    }
+  }
+  
+  .footer-bottom {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  .footer-legal a {
+    position: relative;
+  }
+  
+  .footer-legal a::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300;
+  }
+  
+  .footer-legal a:hover::after {
+    @apply w-full;
+  }
+  
+  /* ===========================
+     VEHICLE CARD COMPONENT
+     =========================== */
+  .vehicle-card {
+    will-change: transform;
+    transform-style: preserve-3d;
+  }
+  
+  .vehicle-image-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .vehicle-image {
+    will-change: transform;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .vehicle-overlay {
+    pointer-events: none;
+    z-index: 10;
+  }
+  
+  .vehicle-overlay-content {
+    will-change: transform;
+  }
+  
+  /* Line clamp utility */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Vehicle card hover state */
+  .vehicle-card:hover {
+    transform: translateY(-8px);
+  }
+  
+  /* Feature icons */
+  .feature-item svg {
+    flex-shrink: 0;
+  }
+  
+  /* Price styling */
+  .price-amount {
+    background: linear-gradient(135deg, #15153f, #be1e2e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #15153f; /* Fallback for browsers that don't support background-clip */
+  }
+  
+  @supports (-webkit-background-clip: text) {
+    .price-amount {
+      color: transparent;
+    }
+  }
+  
+  /* CTA button arrow animation */
+  .vehicle-cta svg {
+    transition: transform 0.2s ease;
+  }
+  
+  .vehicle-cta:hover svg {
+    transform: translateX(4px);
+  }
+  
+  /* ===========================
+     SECTION STYLES
+     =========================== */
+  .section-label {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .section-label::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-full h-0.5 bg-accent;
+    transform: scaleX(0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Featured Vehicles Section */
+  .vehicles-grid {
+    will-change: transform;
+  }
+  
+  /* About/Services Section */
+  .about-services-section {
+    position: relative;
+  }
+  
+  .feature-item {
+    will-change: transform;
+  }
+  
+  .stat-item {
+    will-change: transform;
+  }
+  
+  /* Testimonials Section */
+  .testimonials-carousel {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .testimonials-carousel::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .carousel-dot {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .carousel-dot.active {
+    @apply bg-primary-600 w-8;
+  }
+  
+  /* Section animations */
+  .animate-stagger > * {
+    will-change: transform, opacity;
+  }
+  
+  .animate-slide-left,
+  .animate-slide-right {
+    will-change: transform, opacity;
+  }
+}

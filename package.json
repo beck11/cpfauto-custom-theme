@@ -1,0 +1,27 @@
+{
+  "name": "cpfauto",
+  "version": "1.0.0",
+  "description": "Professional car dealer WordPress theme built with Tailwind CSS and GSAP animations",
+  "scripts": {
+    "dev": "tailwindcss -i ./assets/src/style.css -o ./assets/css/main.css --watch",
+    "build": "tailwindcss -i ./assets/src/style.css -o ./assets/css/main.css --minify",
+    "watch": "npm run dev"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "tailwind",
+    "gsap",
+    "car-dealer"
+  ],
+  "author": "",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0",
+    "@tailwindcss/forms": "^0.5.0",
+    "@tailwindcss/typography": "^0.5.0",
+    "@tailwindcss/aspect-ratio": "^0.4.0"
+  }
+}
